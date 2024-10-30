@@ -1,4 +1,5 @@
-This runs a shuffler simulation that I use to optimize the drive system for my robots.
+This runs a shuffler simulation that I use to optimize the drive system for my robots. Everyone else is welcome to use this to optimize their robots, but please give credit if you do.
+
 A shuffler system uses offset cams so the robot will "walk" instead of roll.
 
 Here is a side by side of my simulation next to actual battlebots shufflers (shufflers found on midwestrobotcombat.com) 
