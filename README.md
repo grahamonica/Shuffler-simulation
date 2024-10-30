@@ -10,6 +10,6 @@ The simulation allows users to adjust the following parameters:
 <img width="1263" alt="image" src="https://github.com/user-attachments/assets/c4424ba4-1e38-4418-87b5-3e24e666c7cd">
 The system returns the lowest point variance, and 360 degree stepover <img width="208" alt="image" src="https://github.com/user-attachments/assets/02477fe7-e13d-4443-be31-a3dcd2d3d19c">. 
 
-Lowest point variance will impact the vibration of the robot by measuring how much the robot "bounces" as it walks.
+Lowest point variance measures the vibration of the robot by calculating how much the robot "bounces" as it walks.
 360 degree stepover is the distance that the robot travels per 360 degree rotation of the camshaft. This will determine the robot's speed and the necessary motor torque to operate.
 
