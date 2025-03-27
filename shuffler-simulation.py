@@ -81,14 +81,14 @@ class StaticShufflerConfig:
 # Plot multiple shufflers in a pod
 def plot_shuffler_pod(config: StaticShufflerConfig):
     fig, ax = plt.subplots(figsize=(10, 6))
-    plt.subplots_adjust(left=0.25, bottom=0.4, right=0.85) 
+    plt.subplots_adjust(left=0.2, bottom=0.45, right=0.4) 
     colors = plt.cm.tab10.colors  # Color map for unique shufflers
 
     # Initial calculation for display values
     lowest_point_variance, stepover = config.calculate_lowest_point_variance_and_stepover()
     feet_per_second, miles_per_hour = config.calculate_speeds(stepover)
 
-    display_text = fig.text(0.8, 0.7, f"Lowest Point Variance: {lowest_point_variance:.2f}\n360-Degree Stepover: {stepover:.2f}\nFeet per Second: {feet_per_second:.2f}\nMiles per Hour: {miles_per_hour:.2f}",
+    display_text = fig.text(0.6, 0.7, f"Lowest Point Variance: {lowest_point_variance:.2f}\n360-Degree Stepover: {stepover:.2f}\nFeet per Second: {feet_per_second:.2f}\nMiles per Hour: {miles_per_hour:.2f}",
                             ha="left", va="top", fontsize=10, transform=fig.transFigure)
 
     def update_display():
@@ -174,7 +174,7 @@ def plot_shuffler_pod(config: StaticShufflerConfig):
         ax.grid(True)
         ax.legend(loc="upper left", bbox_to_anchor=(1.05, 1))
 
-        ax.set_xlim(-config.cam_radius - 1, config.cam_radius + 1)
+        ax.set_xlim(-config.lower_leg_segment - 1, config.upper_leg_segment + config.lower_leg_segment + 1)
         ax.set_ylim(-config.lower_leg_segment - 1, config.upper_leg_segment + config.lower_leg_segment + 1)
         
         fig.canvas.draw_idle()
@@ -198,7 +198,7 @@ def plot_shuffler_pod(config: StaticShufflerConfig):
     slider_arc_radius = Slider(ax_arc_radius, 'Arc Radius', 2, 15, valinit=config.arc_radius)
     slider_arc_angle = Slider(ax_arc_angle, 'Arc Angle', 3, 90, valinit=config.arc_angle)
     slider_cam_rotation = Slider(ax_cam_rotation, 'Cam Rotation', 0, 360, valinit=config.cam_rotation)
-    slider_camshaft_rpm = Slider(ax_camshaft_rpm, 'Camshaft RPM', 300, 15000, valinit=config.camshaft_rpm, valstep=100)
+    slider_camshaft_rpm = Slider(ax_camshaft_rpm, 'Camshaft RPM', 500, 15000, valinit=config.camshaft_rpm, valstep=100)
 
     def update(val):
         config.num_shufflers = slider_num_shufflers.val
